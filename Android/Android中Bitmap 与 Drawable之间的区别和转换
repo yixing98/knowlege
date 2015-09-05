@@ -1,0 +1,73 @@
+Android中Bitmap 与 Drawable之间的区别和转换
+
+Bitmap - 称作位图，一般位图的文件格式后缀为bmp，当然编码器也有很多如RGB565、RGB888。作为一种逐像素的显示对象执行效率高，但是缺点也很明显存储效率低。
+Drawable - 作为Android平台下通用的图形对象，它可以装载常用格式的图像，比如GIF、PNG、JPG，当然也支持BMP，当然还提供一些高级的可视化对象，比如渐变、图形等。
+
+A bitmap is a Drawable. A Drawable is not necessarily a bitmap. Like all thumbs are fingers but not all fingers are thumbs.
+Bitmap是Drawable。Drawable不一定是Bitmap。就像拇指是指头，但不是所有的指头都是拇指一样。
+
+The API dictates:
+Though usually not visible to the application, Drawables may take a variety of forms。
+（译）API规定:
+ 尽管通常情况下对于应用是不可见的,Drawables 可以采取很多形式:
+
+Bitmap: the simplest Drawable, a PNG or JPEG image. 
+Nine Patch: an extension to the PNG format allows it to specify information about how to stretch it and place things inside of it.
+Shape: contains simple drawing commands instead of a raw bitmap, allowing it to resize better in some cases.
+Layers: a compound drawable, which draws multiple underlying drawables on top of each other.
+States: a compound drawable that selects one of a set of drawables based on its state.
+Levels: a compound drawable that selects one of a set of drawables based on its level.
+Scale: a compound drawable with a single child drawable, whose overall size is modified based on the current level.
+
+小结：
+|对比项|显示清晰度|占用内存|支持缩放|支持色相色差调整|支持旋转|支持透明色|绘制速度|支持像素操作|
+|Bitmap|相同|大|是|是|是|是|慢|是|
+|Drawable|相同|小|是|否|是|是|快|否|
+
+Drawable在内存占用和绘制速度这两个非常关键的点上胜过Bitmap。
+==================================================================================================
+//转换Bitmap to Drawable
+Bitmap bitmap = new Bitmap (...);
+Drawable drawable = new BitmapDrawable(bitmap);
+  
+//转换Drawable to Bitmap
+Drawable d = ImagesList.get(0);
+Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+   
+//1、Drawable → Bitmap
+public static Bitmap drawableToBitmap(Drawable drawable) {
+           
+        Bitmap bitmap = Bitmap
+                        .createBitmap(
+                                        drawable.getIntrinsicWidth(),
+                                        drawable.getIntrinsicHeight(),
+                                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+                                                        : Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        //canvas.setBitmap(bitmap);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        drawable.draw(canvas);
+        return bitmap;
+}
+  
+//2、从资源中获取Bitmap
+Resources res=getResources();
+Bitmap bmp=BitmapFactory.decodeResource(res, R.drawable.pic);
+  
+//3、Bitmap → byte[]
+private byte[] Bitmap2Bytes(Bitmap bm){
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+    return baos.toByteArray();
+   }
+  
+//4、 byte[] → Bitmap
+private Bitmap Bytes2Bimap(byte[] b){
+            if(b.length!=0){
+                return BitmapFactory.decodeByteArray(b, 0, b.length);
+            }
+            else {
+                return null;
+            }
+      }
+==================================================================================================
