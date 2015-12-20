@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>【Android】Android自定义属性，attr format取值类型 - Rex.. - 博客园</title>
+</head>
+<body>
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" >【Android】Android自定义属性，attr format取值类型</a>
+		</h1>
+        <h6><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/rayray/p/3442026.html">[转]http://www.cnblogs.com/rayray/p/3442026.html</a>
+        </h6>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>1. reference：参考某一资源ID。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "名称"</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "background"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "reference"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;">（2）属性使用：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ImageView
+    </span><span style="color: #ff0000;">android:layout_width </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;"> 
+    android:layout_height </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;"> 
+    android:background </span><span style="color: #0000ff;">= "@drawable/图片ID"</span><span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>2. color：颜色值。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "名称"</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "textColor"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "color"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">TextView
+    </span><span style="color: #ff0000;">android:layout_width </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;"> 
+    android:layout_height </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;"> 
+    android:textColor </span><span style="color: #0000ff;">= "#00FF00"</span><span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>3. boolean：布尔值。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "名称"</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "focusable"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "boolean"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button
+    </span><span style="color: #ff0000;">android:layout_width </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;"> 
+    android:layout_height </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;">
+    android:focusable </span><span style="color: #0000ff;">= "true"</span><span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>4. dimension：尺寸值。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "名称"</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "layout_width"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "dimension"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">Button
+    </span><span style="color: #ff0000;">android:layout_width </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;"> 
+    android:layout_height </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>5. float：浮点值。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "AlphaAnimation"</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "fromAlpha"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "float"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "toAlpha"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "float"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">alpha 
+    </span><span style="color: #ff0000;">android:fromAlpha </span><span style="color: #0000ff;">= "1.0"</span><span style="color: #ff0000;"> 
+    android:toAlpha </span><span style="color: #0000ff;">= "0.7"</span><span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>6. integer：整型值。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "AnimatedRotateDrawable"</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "visible"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "frameDuration"</span><span style="color: #ff0000;"> format</span><span style="color: #0000ff;">="integer"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "framesCount"</span><span style="color: #ff0000;"> format</span><span style="color: #0000ff;">="integer"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "pivotX"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "pivotY"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "drawable"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">animated-rotate
+    </span><span style="color: #ff0000;">xmlns:android </span><span style="color: #0000ff;">="http://schemas.android.com/apk/res/android"</span><span style="color: #ff0000;"> 
+    android:drawable </span><span style="color: #0000ff;">= "@drawable/图片ID"</span><span style="color: #ff0000;"> 
+    android:pivotX </span><span style="color: #0000ff;">= "50%"</span><span style="color: #ff0000;"> 
+    android:pivotY </span><span style="color: #0000ff;">= "50%"</span><span style="color: #ff0000;"> 
+    android:framesCount </span><span style="color: #0000ff;">= "12"</span><span style="color: #ff0000;"> 
+    android:frameDuration </span><span style="color: #0000ff;">= "100"</span><span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>7. string：字符串。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "MapView"</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "apiKey"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "string"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">com.google.android.maps.MapView 
+    </span><span style="color: #ff0000;">android:layout_width </span><span style="color: #0000ff;">= "fill_parent"</span><span style="color: #ff0000;"> 
+    android:layout_height </span><span style="color: #0000ff;">= "fill_parent"</span><span style="color: #ff0000;"> 
+    android:apiKey </span><span style="color: #0000ff;">="0jOkQ80oD1JL9C6HAja99uGXCRiS2CGjKO_bc_g"</span><span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>8. fraction：百分数。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="RotateDrawable"</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "visible"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "fromDegrees"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "float"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "toDegrees"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "float"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "pivotX"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "fraction"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "pivotY"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "fraction"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "drawable"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">rotate
+    </span><span style="color: #ff0000;">xmlns:android </span><span style="color: #0000ff;">="http://schemas.android.com/apk/res/android"</span><span style="color: #ff0000;"> 
+    android:interpolator </span><span style="color: #0000ff;">= "@anim/动画ID"</span><span style="color: #ff0000;">
+    android:fromDegrees </span><span style="color: #0000ff;">= "0"</span><span style="color: #ff0000;"> 
+    android:toDegrees </span><span style="color: #0000ff;">= "360"</span><span style="color: #ff0000;">
+    android:pivotX </span><span style="color: #0000ff;">= "200%"</span><span style="color: #ff0000;">
+    android:pivotY </span><span style="color: #0000ff;">= "300%"</span><span style="color: #ff0000;"> 
+    android:duration </span><span style="color: #0000ff;">= "5000"</span><span style="color: #ff0000;">
+    android:repeatMode </span><span style="color: #0000ff;">= "restart"</span><span style="color: #ff0000;">
+    android:repeatCount </span><span style="color: #0000ff;">= "infinite"</span>
+<span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>9. enum：枚举值。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="名称"</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="orientation"</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">enum </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="horizontal"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="0"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">enum </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="vertical"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="1"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">attr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">LinearLayout
+    </span><span style="color: #ff0000;">xmlns:android </span><span style="color: #0000ff;">= "http://schemas.android.com/apk/res/android"</span><span style="color: #ff0000;"> 
+    android:orientation </span><span style="color: #0000ff;">= "vertical"</span><span style="color: #ff0000;"> 
+    android:layout_width </span><span style="color: #0000ff;">= "fill_parent"</span><span style="color: #ff0000;"> 
+    android:layout_height </span><span style="color: #0000ff;">= "fill_parent"</span> <span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">LinearLayout</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>10. flag：位或运算。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="名称"</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="windowSoftInputMode"</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "stateUnspecified"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "0"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "stateUnchanged"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "1"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "stateHidden"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "2"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "stateAlwaysHidden"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "3"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "stateVisible"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "4"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "stateAlwaysVisible"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "5"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "adjustUnspecified"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "0x00"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "adjustResize"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "0x10"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "adjustPan"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "0x20"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">flag </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "adjustNothing"</span><span style="color: #ff0000;"> value </span><span style="color: #0000ff;">= "0x30"</span> <span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">attr</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">activity
+    </span><span style="color: #ff0000;">android:name </span><span style="color: #0000ff;">= ".StyleAndThemeActivity"</span><span style="color: #ff0000;"> 
+    android:label </span><span style="color: #0000ff;">= "@string/app_name"</span><span style="color: #ff0000;"> 
+    android:windowSoftInputMode </span><span style="color: #0000ff;">= "stateUnspecified | stateUnchanged　|　stateHidden"</span><span style="color: #0000ff;">&gt;</span> 
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">intent-filter</span><span style="color: #0000ff;">&gt;</span> 
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">action </span><span style="color: #ff0000;">android:name </span><span style="color: #0000ff;">= "android.intent.action.MAIN"</span> <span style="color: #0000ff;">/&gt;</span> 
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">category </span><span style="color: #ff0000;">android:name </span><span style="color: #0000ff;">= "android.intent.category.LAUNCHER"</span> <span style="color: #0000ff;">/&gt;</span> 
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">intent-filter</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">activity</span><span style="color: #0000ff;">&gt;</span>        </pre>
+</div>
+<p>&nbsp;</p>
+<p>注意：</p>
+<p>属性定义时可以指定多种类型值。</p>
+<p>（1）属性定义：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">declare-styleable </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "名称"</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">attr </span><span style="color: #ff0000;">name </span><span style="color: #0000ff;">= "background"</span><span style="color: #ff0000;"> format </span><span style="color: #0000ff;">= "reference|color"</span> <span style="color: #0000ff;">/&gt;</span>
+
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">declare-styleable</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>（2）属性使用：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ImageView
+    </span><span style="color: #ff0000;">android:layout_width </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;"> 
+    android:layout_height </span><span style="color: #0000ff;">= "42dip"</span><span style="color: #ff0000;"> 
+    android:background </span><span style="color: #0000ff;">= "@drawable/图片ID|#00FF00"</span><span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+</body>
+</html>
